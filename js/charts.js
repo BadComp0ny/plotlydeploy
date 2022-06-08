@@ -72,7 +72,7 @@ function buildCharts(sample) {
     // Hint: Get the the top 10 otu_ids and map them in descending order  
     //  so the otu_ids with the most bacteria are last. 
 
-    var yticks = id1.map(sampleobj => "otu " + sampleObj).slice(0,10).revers();
+    var yticks = id1.map(sampleobj => "otu " + sampleObj).slice(0,10).reverse();
     console.log(yticks); 
     // 8. Create the trace for the bar chart. 
     var barData = [{
@@ -81,37 +81,34 @@ function buildCharts(sample) {
       type: "bar",
       orientation: "h",
       text: label1
-    }];
-
-  
+    }];  
     // 9. Create the layout for the bar chart. 
     var barLayout = {
      title: "Top 10 Bacteria identified"
     };
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout);
-  });
-  // 1. Create the trace for the bubble chart.
-  var bubbleData = [{
-    x: id1,
-    y: values,
-    text: label1,
-    mode: "markers",
-      marker: {
-        size: values,
-        color: values,
-        colorscale: "deep"
-      }
 
-  }];
+    // 1. Create the trace for the bubble chart.
+    var bubbleData = [{
+      x: id1,
+      y: values,
+      text: label1,
+      mode: "markers",
+        marker: {
+          size: values,
+          color: values,
+          colorscale: "deep"
+        }
+      }];
 
-  // 2. Create the layout for the bubble chart.
-  var bubbleLayout = {
-    title: "Bacteria Cultures Per Sample",
-    xaxis: {title: "OTU ID"},
-    automargin: true,
-    hovermode: "closest"
-  };
+    // 2. Create the layout for the bubble chart.
+    var bubbleLayout = {
+      title: "Bacteria Cultures Per Sample",
+      xaxis: {title: "OTU ID"},
+      automargin: true,
+      hovermode: "closest"
+    };
 
   // 3. Use Plotly to plot the data with the layout.
   Plotly.newPlot("bubble",bubbleData,bubbleLayout) 
@@ -161,7 +158,7 @@ function buildCharts(sample) {
       ],
       dtick: 2
     }  
-}];
+  }];
     
   // 5. Create the layout for the gauge chart.
   var gaugeLayout = { 
@@ -170,4 +167,5 @@ function buildCharts(sample) {
 
   // 6. Use Plotly to plot the gauge data and layout.
   Plotly.newPlot("gauge", gaugeData, gaugeLayout);
-};
+});
+}
