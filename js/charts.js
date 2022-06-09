@@ -68,11 +68,9 @@ function buildMetadata(sample) {
   
       // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
       var  ids = result.otu_ids;
-      var labels = result.otu_labels.slice(0, 10).reverse();
-      var values = result.sample_values.slice(0,10).reverse();
+      var labels = result.otu_labels;
+      var values = result.sample_values;
   
-      var bubbleLabels = result.otu_labels;
-      var bubbleValues = result.sample_values;
   
       // 7. Create the yticks for the bar chart.
       // Hint: Get the the top 10 otu_ids and map them in descending order  
@@ -105,13 +103,13 @@ function buildMetadata(sample) {
       // 1. Create the trace for the bubble chart.
       var bubbleData = [{
         x: ids,
-        y: bubbleValues,
-        text: bubbleLabels,
+        y: values,
+        text: labels,
         mode: "markers",
          marker: {
            size: bubbleValues,
            color: bubbleValues,
-           colorscale: "Portland" 
+           colorscale: "deep" 
          }
       }];
     
@@ -131,13 +129,13 @@ function buildMetadata(sample) {
   
       // 1. Create a variable that filters the metadata array for the object with the desired sample number.
       var metadata = data.metadata;
-      var gaugeArray = metadata.filter(metaObj => metaObj.id == sample);  
+      var array1 = metadata.filter(metaObj => metaObj.id == sample);  
   
       // 2. Create a variable that holds the first sample in the metadata array.
-          var gaugeResult = gaugeArray[0];
+          var resultGauge = array1[0];
   
       // 3. Create a variable that holds the washing frequency.  
-      var wfreqs = gaugeResult.wfreq;
+      var wfreqs = resultGauge.wfreq;
       console.log(wfreqs)
   
       // 4. Create the trace for the gauge chart.
