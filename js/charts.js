@@ -107,8 +107,8 @@ function buildMetadata(sample) {
         text: labels,
         mode: "markers",
          marker: {
-           size: bubbleValues,
-           color: bubbleValues,
+           size: values,
+           color: values,
            colorscale: "deep" 
          }
       }];
