@@ -71,6 +71,8 @@ function buildMetadata(sample) {
       var labels = result.otu_labels;
       var values = result.sample_values;
   
+      var bubbleLabels = result.otu_labels;
+      var bubbleValues = result.sample_values;
   
       // 7. Create the yticks for the bar chart.
       // Hint: Get the the top 10 otu_ids and map them in descending order  
@@ -103,12 +105,12 @@ function buildMetadata(sample) {
       // 1. Create the trace for the bubble chart.
       var bubbleData = [{
         x: ids,
-        y: values,
-        text: labels,
+        y: bubbleValues,
+        text: bubbleLabels,
         mode: "markers",
          marker: {
-           size: values,
-           color: values,
+           size: bubbleValues,
+           color: bubbleValues,
            colorscale: "deep" 
          }
       }];
