@@ -71,9 +71,6 @@ function buildMetadata(sample) {
       var labels = result.otu_labels;
       var values = result.sample_values;
   
-      var bubbleLabels = result.otu_labels;
-      var bubbleValues = result.sample_values;
-  
       // 7. Create the yticks for the bar chart.
       // Hint: Get the the top 10 otu_ids and map them in descending order  
       //  so the otu_ids with the most bacteria are last. 
@@ -84,7 +81,7 @@ function buildMetadata(sample) {
   
       // 8. Create the trace for the bar chart. 
       var barData = [{
-        x: values,
+        x: values.slice(0,10).reverse(),
         y: yticks,
         type: "bar",
         orientation: "h",
@@ -105,12 +102,12 @@ function buildMetadata(sample) {
       // 1. Create the trace for the bubble chart.
       var bubbleData = [{
         x: ids,
-        y: bubbleValues,
-        text: bubbleLabels,
+        y: values,
+        text: ids,
         mode: "markers",
          marker: {
-           size: bubbleValues,
-           color: bubbleValues,
+           size: values,
+           color: ids,
            colorscale: "deep" 
          }
       }];
