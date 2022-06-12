@@ -143,7 +143,7 @@ function buildMetadata(sample) {
         value: wfreqs,
         type: "indicator",
         mode: "gauge+number",
-        title: {text: "<b> Belly Button Washing Frequency </b> <br></br> Scrubs Per Week"},
+        title: {text: "<b> Belly Button Washing Frequency </b> <br></br> Avg Scrubs Per Week"},
         gauge: {
           axis: {range: [null,10], dtick: "2"},
   
