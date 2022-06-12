@@ -82,7 +82,7 @@ function buildMetadata(sample) {
       // 8. Create the trace for the bar chart. 
       var barData = [{
         x: values.slice(0,10).reverse(),
-        y: yticks.slice(0,10).reverse(),
+        y: yticks,
         type: "bar",
         orientation: "h",
         text: labels 
